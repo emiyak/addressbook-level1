@@ -144,6 +144,10 @@ public class AddressBook {
     private static final int PERSON_DATA_INDEX_NAME = 0;
     private static final int PERSON_DATA_INDEX_PHONE = 1;
     private static final int PERSON_DATA_INDEX_EMAIL = 2;
+    
+    private static final int SPLIT_ARGS_INDEX1 = 0;
+    private static final int SPLIT_ARGS_INDEX2 = 1;
+    private static final int SPLIT_ARGS_INDEX3 = 2;
 
     /**
      * The number of data elements for a single person.
@@ -961,9 +965,9 @@ public class AddressBook {
         final String matchAnyPersonDataPrefix = PERSON_DATA_PREFIX_PHONE + '|' + PERSON_DATA_PREFIX_EMAIL;
         final String[] splitArgs = personData.trim().split(matchAnyPersonDataPrefix);
         return splitArgs.length == 3 // 3 arguments
-                && !splitArgs[0].isEmpty() // non-empty arguments
-                && !splitArgs[1].isEmpty()
-                && !splitArgs[2].isEmpty();
+        		&& !splitArgs[SPLIT_ARGS_INDEX1].isEmpty() // non-empty arguments
+        		&& !splitArgs[SPLIT_ARGS_INDEX2].isEmpty()
+        		&& !splitArgs[SPLIT_ARGS_INDEX3].isEmpty();
     }
 
     /**
