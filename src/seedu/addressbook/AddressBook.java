@@ -269,6 +269,9 @@ public class AddressBook {
         if(args.length == 0) {
             setupDefaultFileForStorage();
         }
+        else{
+            exitProgram();
+        }
     }
 
     /**
