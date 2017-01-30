@@ -163,7 +163,9 @@ public class AddressBook {
      * If the first non-whitespace character in a user's input line is this, that line will be ignored.
      */
     private static final char INPUT_COMMENT_MARKER = '#';
-
+    
+    private static final int COMMAND_TYPE_INDEX = 0;
+    private static final int COMMAND_ARGS_INDEX = 1;
     /*
      * This variable is declared for the whole class (instead of declaring it
      * inside the readUserCommand() method to facilitate automated testing using
@@ -373,8 +375,8 @@ public class AddressBook {
      */
     private static String executeCommand(String userInputString) {
         final String[] commandTypeAndParams = splitCommandWordAndArgs(userInputString);
-        final String commandType = commandTypeAndParams[0];
-        final String commandArgs = commandTypeAndParams[1];
+        final String commandType = commandTypeAndParams[COMMAND_TYPE_INDEX];
+        final String commandArgs = commandTypeAndParams[COMMAND_ARGS_INDEX];
         switch (commandType) {
         case COMMAND_ADD_WORD:
             return executeAddPerson(commandArgs);
